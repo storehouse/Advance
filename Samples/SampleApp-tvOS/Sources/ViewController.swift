@@ -9,7 +9,7 @@ class ViewController: UIViewController {
     
     let dot = UIView(frame: CGRect.zero)
     
-    let spring = Spring(value: CGPoint.zero)
+    let spring = Spring(initialValue: CGPoint.zero)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         dot.backgroundColor = UIColor(red: 0.0, green: 196.0/255.0, blue: 1.0, alpha: 1.0)
         view.addSubview(dot)
         
-        spring.onChange = { dot.center = $0 }
+        spring.onChange = { self.dot.center = $0 }
         spring.reset(to: CGPoint(x: view.bounds.midX, y: view.bounds.midY))
     }
 
